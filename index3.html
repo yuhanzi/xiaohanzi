@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+    <style>
+        html{font-size: 10px;height: 100%}
+        body{
+            font-family: 微软雅黑, "Microsoft YaHei";
+            height: 100%;
+        }
+        *{margin: 0;padding: 0}
+        ul,li{list-style: none}
+        .head{
+            width: 100%;
+            background: #ffffff;
+            position: fixed;
+            top:0;
+            left: 0;
+            padding: 0px 3%;
+            z-index: 1000;
+        }
+        .head.navbar{border-radius: 0}
+        a:focus { outline: none; border:none;}
+
+        .navbar-toggle{
+            background-color: red;
+        }
+        .navbar-toggle .icon-bar{
+            background-color: white;
+        }
+
+        .logo{
+            display:block;
+            margin:2.4rem 0;
+            margin-right: 2rem;
+
+        }
+        .nav > li > a{
+            color: #666;
+            line-height: 7.4rem;
+            font-size: 1.4rem;
+        }
+        .nav > li > a:hover{
+            background: #be1e21;
+            color: white;
+        }
+        .nav > li > a:focus{
+            background: #be1e21;
+            color: white;
+        }
+        .head-ri a{
+            display: block;
+            background-color: #be1e21;
+            color: white;
+            width: 10rem;
+            line-height: 3.5rem;
+            font-size: 1.2rem;
+            text-align: center;
+            border-radius: 5rem;
+            margin-top: 2rem;
+        }
+        #mycollapse{float: left}
+        #menu .active{background: #da2c30}
+
+        .content{
+            margin-top: 10rem;
+            height: 40rem;
+            line-height: 40rem;
+            background:url("img/20161111060131928.jpg") no-repeat center;
+            background-size: cover;
+            clear: both;
+        }
+        .content p{
+            color: white;
+            font-size: 3rem;
+        }
+        .logo-ri ul li{
+            text-align: center;
+            display: inline-block;
+            margin-top: 2rem;
+            margin-left: 2rem;
+        }
+        /*.logo-ri ul li:last-child{padding-top: 30px}*/
+        .logo-ri ul li a{
+            display: block;
+            color:#be1e21;
+            font-size: 1.2rem;
+        }
+        .logo-ri ul li a:hover{text-decoration: none}
+        .logo-ri ul li p{margin: 0;font-weight:bold;color:#be1e21;}
+        .logo-ri ul li .head-ri{background-color: #be1e21;color: white; border-radius: 5rem;margin-top: 1rem}
+
+
+        .tex_{text-align: center;line-height: 100px}
+        .tex_ span{font-size: 24px;color: #292929; border-bottom: 2px solid #292929}
+        .tex>p{
+            font-size: 14px;
+            padding-bottom: 100px;
+        }
+
+
+        .foo-1{
+            background: #282828;
+            padding:30px 0;
+            color:white;
+            font-size: 14px;
+
+        }
+        .foo-1 a{
+            color:white;
+        }
+        .foo-1-1{
+            width: 470px;
+            margin:  0 auto;
+            overflow: hidden;
+            padding-top: 30px;
+        }
+        .foo-1-1 div{
+            float: left;
+            margin-right: 30px;
+        }
+        .foo-1-1 div p:nth-child(2){
+            margin-top: 30px;
+        }
+        .foo-1-1 div:last-child p:nth-child(1){
+          color: #be1e21;
+        }
+        .foo-2{
+            background: #4c4c4c;
+            padding: 10px 0;
+            color: white;
+        }
+        @media (max-width:998px) {
+            #mycollapse{display: none}
+            .logo-ri ul li p{display: none}
+            .logo-ri ul li:first-child,.logo-ri ul li:nth-child(2){display: none}
+        }
+    </style>
+</head>
+<body>
+<div class="head clearfix navbar">
+    <div class="nav-top">
+        <div class="navbar-header">
+            <a href="" class="logo"><img src="img/Logo_erji.png" width="95"  height="55" alt=""/></a>
+            <button class="navbar-toggle" data-toggle="collapse" data-target="#mycollapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div id="mycollapse" class="navbar-collapse">
+            <ul id="menu" class="nav navbar-nav">
+                <li data-menuanchor="page1"><a href="indexGP.html#sec1">首页</a></li>
+                <li data-menuanchor="page2"><a href="indexGP.html#page2">公司介绍</a></li>
+                <li data-menuanchor="page3"><a href="indexGP.html#page3">产品服务</a></li>
+                <li data-menuanchor="page4"><a href="indexGP.html#page4">产品功能</a></li>
+                <li data-menuanchor="page5"><a href="indexGP.html#page5">产品优势</a></li>
+                <li data-menuanchor="page6"><a href="indexGP.html#page6">客户案例</a></li>
+                <li data-menuanchor="page7"><a href="indexGP.html#page7">新闻公告</a></li>
+                <li data-menuanchor="page8"><a href="indexGP.html#page8">联系我们</a></li>
+            </ul>
+        </div>
+        <div class="logo-ri pull-right">
+            <ul>
+                <li>
+                    <a href=""><img src="img/dianying.png" alt=""/></a>
+                    <a href="">电影平台</a>
+                </li>
+                <li>
+                    <a href=""><img src="img/gouwuche.png" alt=""/></a>
+                    <a href="">福利商城</a>
+                </li>
+                <li>
+                    <p>全国免费热线：</p>
+                    <p>400-065-9958</p>
+                   <a class="head-ri" href="">用户登录</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="content">
+    <p class="text-center">中国最专业的关怀平台领导者</p>
+</div>
+
+<div class="tex">
+    <div class="tex_">
+        <span>新浪</span>
+    </div>
+    <p class="container">CIC</p>
+</div>
+<footer>
+   <div class="foo-1">
+       <div class="">
+           <div class="text-center">
+               <a href="">关于我们</a>
+               <span>|</span>
+               <a href="">联系我们</a>
+               <span>|</span>
+               <a href="">商务合作</a>
+               <span>|</span>
+               <a href="">意见反馈</a>
+               <span>|</span>
+               <a href="">诚聘英才</a>
+               <span>|</span>
+               <a href="">友情链接</a>
+           </div>
+           <div class="foo-1-1">
+               <div>
+                   <p>汇聚美好生活</p>
+                   <img src="img/erweima_erji.jpg" alt=""/>
+               </div>
+               <div>
+                   <p>全国免费热线:400-065-9958</p>
+                   <p>
+                       北京青大方圆文化创意有限公司 <br/>
+                       地址：北京市海淀区上地街金隅嘉华大厦E座201 <br/>
+                       邮箱：179776159！@qq.com
+                   </p>
+               </div>
+           </div>
+       </div>
+   </div>
+    <div class="text-center foo-2">
+        版权所有©2014-2018中影汇官网 www.movie158.com 京ICP备0901234561号
+    </div>
+</footer>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</body>
+</html>

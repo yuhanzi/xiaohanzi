@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+    <link rel="stylesheet" href="css/jquery.fullPage.css"/>
+    <link rel="stylesheet" href="css/animate.css"/>
+    <!--<link rel="stylesheet" href="css/swiper-3.4.2.min.css"/>-->
+    <!--<link rel="stylesheet" href="css/index.css"/>-->
+    <style>
+        html{font-size: 10px;height: 100%}
+        body{
+            font-family: 微软雅黑, "Microsoft YaHei";
+            height: 100%;
+            overflow: hidden;
+        }
+        *{margin: 0;padding: 0}
+        ul,li{list-style: none}
+        .head{
+            width: 100%;
+            /*height: 70px;*/
+            /*line-height: 70px;*/
+            background: rgba(0,0,0,0.5);
+            position: fixed;
+            top:0;
+            z-index: 1000;
+        }
+        a:focus { outline: none; border:none;}
+
+        .navbar-toggle{
+            background-color: red;
+        }
+        .navbar-toggle .icon-bar{
+            background-color: white;
+        }
+
+        .logo{
+            display: block;
+            width: 120px;
+            height: 70px;
+            vertical-align: bottom;
+            background: url("img/erjilogo_03.png") no-repeat 0 10px;
+
+        }
+        .nav > li > a{
+            color: white;
+            height: 69px;
+            line-height: 40px;
+            font-size: 1.8rem;
+        }
+        .nav > li > a:hover{
+            background: #be1e21;
+        }
+        .nav > li > a:focus{
+            background: rgba(190, 30, 33, 0);
+        }
+        .head-ri a{
+            display: block;
+            background-color: #be1e21;
+            color: white;
+            width: 100px;
+            line-height: 35px;
+            font-size: 12px;
+            text-align: center;
+            border-radius: 50px;
+            margin-top: 20px;
+        }
+
+
+        #pa6{
+            background: url("img/06.jpg") no-repeat center;
+          background-size: cover;
+        }
+        #pa6 .container{
+            overflow: hidden;
+            padding-top: 60px;
+        }
+        .page6-til{
+            font-size: 28px;
+            font-weight:bold;
+            text-align: center;
+            display: none;
+        }
+
+        .page6-til span{color:#da2c30}
+        .page6-subtil{
+            text-align: center;
+            font-size: 14px;
+            padding: 15px 0;
+        }
+        .page6-subtil.animated{
+             animation-delay:200ms;
+         }
+        .page6-subtil-le{
+            display: inline-block;
+            width: 105px;
+            height: 8px;
+            background: url("img/index_21.png") no-repeat;
+        }
+        .page6-subtil-ri{
+            display: inline-block;
+            width: 105px;
+            height: 8px;
+            background: url("img/index17.png") no-repeat;
+        }
+        .page6-text{
+            text-align: center;
+            font-size: 10px;
+        }
+        .page6-text.animated{
+            animation-delay:400ms;
+        }
+
+        .ul-one{
+            animation-delay:600ms;
+        }
+        .ul-two{ animation-delay:600ms;}
+        .partner{
+            margin: 30px 0;
+        }
+        .partner ul{
+            clear:both;
+        }
+        .partner ul li img{
+            width: 100%;
+        }
+        .partner ul li{
+            float: left;
+            width: 20%;
+            padding: 2px;
+        }
+        .partner ul li a{
+            display: block;
+            position: relative;
+        }
+        .partner ul li a .img1{
+            opacity: 1;
+            transition: all .5s linear 10ms;
+            border: 1px solid #bfbfbf;
+        }
+        .partner ul li a:hover .img1{
+            position: absolute;
+            left: 0;
+            top:0;
+            z-index: 1;
+            opacity: 0;
+            transform: rotateY(180deg);
+        }
+        .partner ul li a .img2{
+            position: absolute;
+            left: 0;
+            top:0px;
+            opacity: 0;
+            transform: rotateY(180deg);
+            transition: all .5s linear 10ms;
+        }
+        .partner ul li a:hover .img2{
+            z-index: 2;
+            opacity: 1;
+            transform: rotateY(0deg);
+            border: 1px solid #bfbfbf;
+        }
+        .more1{clear: both;text-align: center;animation-delay:600ms;}
+        .more{
+            display: inline-block;
+            width: 156px;
+            height: 40px;
+            line-height: 40px;
+            border-radius: 10px;
+            color: white;
+            font-size: 1.8rem;
+            background: #da2c30;
+            margin-top: 20px;
+        }
+        .more:hover{text-decoration:none;color:white;}
+
+        #menu .active{background: #da2c30}
+
+        .section{overflow: hidden}
+
+
+        .slide{
+            display: inline-block;
+            width: 54px;
+            height: 216px;
+            position: fixed;
+            right: 0;
+            top:40%;
+            z-index: 8000;
+            /*background: red;*/
+        }
+        .slide ul li{
+            height: 54px;
+            border-bottom: 1px solid #CCCCCC;
+        }
+        .slide ul li a{
+            background: #000000;
+            display: block;
+            text-align: center;
+            color: white;
+            opacity: 0.6;
+            line-height: 53px;
+            transition: all 200ms;
+            position: relative;
+        }
+        .slide ul li .btn1{ transition: all 0s;}
+        .slide ul li a .glyphicon{
+            font-size: 20px;
+            vertical-align: middle;
+        }
+        .slide ul li .btn3 div{
+            position: absolute;
+            top:0;
+            right: 0;
+            bottom: 0;
+            background: #000000;
+            opacity: 1;
+            height: 54px;
+            width: 54px;
+            transition: all 500ms;
+            text-align: left;
+            overflow: hidden;
+        }
+        .slide ul li .btn3 div .glyphicon{
+            margin-left: 15px;
+        }
+        .slide ul li .btn3:hover .sli{
+            opacity: 1;
+            width: 180px;
+        }
+        .slide ul li a:hover{
+            opacity: 1;
+        }
+
+
+        .wei{
+            width: 130px;
+            /*padding: 0 20px 20px 20px;*/
+            padding-bottom: 20px;
+            position: absolute;
+            z-index: 12;
+            right: 54px;
+            top:0;
+            background-color: black;
+            display: none;
+        }
+        .wei p{font-size: 14px;margin: 0;padding: 0}
+        .btn1:hover .wei{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="head clearfix navbar">
+    <div class="container">
+        <div class="head-ri navbar-right"><a href="">用户登录</a></div>
+        <div class="navbar-header">
+            <a href="" class="logo"></a>
+            <button class="navbar-toggle" data-toggle="collapse" data-target="#mycollapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div id="mycollapse" class="navbar-collapse navbar-right">
+            <ul id="menu" class="nav navbar-nav">
+                <li data-menuanchor="page1"><a href="#page1" class="active">首页</a></li>
+                <li data-menuanchor="page2"><a href="#page2">公司介绍</a></li>
+                <li data-menuanchor="page3"><a href="#page3">产品服务</a></li>
+                <li data-menuanchor="page4"><a href="#page4">产品功能</a></li>
+                <li data-menuanchor="page5"><a href="#page5">产品优势</a></li>
+                <li data-menuanchor="page6"><a href="#page6">客户案例</a></li>
+                <li data-menuanchor="page7"><a href="#page7">新闻公告</a></li>
+                <li data-menuanchor="page8"><a href="#page8">联系我们</a></li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+<div id="dowebok">
+    <div class="section" id="pa1"></div>
+    <div class="section" id="pa2"></div>
+    <div class="section" id="pa3"></div>
+    <div class="section" id="pa4"></div>
+    <div class="section" id="pa5"></div>
+    <div class="section" id="pa6">
+        <div class="container">
+            <div class="page6-til">
+                CUSTOMER <span>CASE</span>
+            </div>
+            <div class="page6-subtil">
+                <span class="page6-subtil-le"></span>
+                客户案例
+                <span class="page6-subtil-ri"></span>
+            </div>
+            <p class="page6-text">目前，中影汇的合作资源已经覆盖全国大部分城市和地区，形成全面迅速扩张的服务网络</p>
+            <div class="partner">
+                <ul class="ul-one">
+                    <li><a href="index2.html">
+                        <img src="img/20161111101526307.png" class="img1" alt=""/>
+                        <img src="img/20161111101526307.png" class="img2" alt=""/>
+                    </a></li>
+                    <li><a href="index3.html">
+                        <img src="img/20161111101639306.png" class="img1" alt=""/>
+                        <img src="img/20161111101639306.png" class="img2" alt=""/>
+                    </a></li>
+                    <li><a href="index4.html">
+                        <img src="img/20161111101724566.png" class="img1" alt=""/>
+                        <img src="img/20161111101724566.png" class="img2" alt=""/>
+                    </a></li>
+                    <li><a href="index5.html">
+                        <img src="img/20161111101811696.png" class="img1" alt=""/>
+                        <img src="img/20161111101811696.png" class="img2" alt=""/>
+                    </a></li>
+                    <li><a href="index6.html">
+                        <img src="img/20161111101856918.png" class="img1" alt=""/>
+                        <img src="img/20161111101856918.png" class="img2" alt=""/>
+                    </a></li>
+                </ul>
+                <ul class="ul-two">
+                    <li><a href="index7.html">
+                        <img src="img/20161111101936900.png" class="img1" alt=""/>
+                        <img src="img/20161111101936900.png" class="img2" alt=""/>
+                    </a></li>
+                    <li><a href="index8.html">
+                        <img src="img/20161111102053341.png" class="img1" alt=""/>
+                        <img src="img/20161111102053341.png" class="img2" alt=""/>
+                    </a></li>
+                    <li><a href="index9.html">
+                        <img src="img/20161111102148208.png" class="img1" alt=""/>
+                        <img src="img/20161111102148208.png" class="img2" alt=""/>
+                    </a></li>
+                    <li><a href="index10.html">
+                        <img src="img/20161111102225775.png" class="img1" alt=""/>
+                        <img src="img/20161111102225775.png" class="img2" alt=""/>
+                    </a></li>
+                    <li><a href="index11.html">
+                        <img src="img/20161111102304817.png" class="img1" alt=""/>
+                        <img src="img/20161111102304817.png" class="img2" alt=""/>
+                    </a></li>
+                </ul>
+            </div>
+            <div class="text-center more1">
+                <a class="more" href="index12.html">MORE>></a>
+            </div>
+        </div>
+    </div>
+    <div class="section" id="pa7"></div>
+    <div class="section" id="pa8"></div>
+
+</div>
+<div class="slide">
+    <ul>
+        <li><a class="btn1" href=""><div class="wei"><p>微信公众号</p><img src="img/erweima_erji.jpg" width="101" alt=""/></div><i class="glyphicon glyphicon-qrcode"></i></a></li>
+        <li><a class="btn3" href=""><div class="sli"><i class="glyphicon glyphicon-user"></i> &nbsp;&nbsp;QQ客服</div></a></li>
+        <li><a class="btn3" href=""><div class="sli"><i class="glyphicon glyphicon-earphone"></i> &nbsp;&nbsp;400-065-9958</div></a></li>
+        <li><a class="btn4" href=""><i class="glyphicon glyphicon-chevron-up"></i></a></li>
+    </ul>
+</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.fullPage.min.js"></script>
+<script src="js/jquery.easings.min.js"></script>
+<!--<script src="js/swiper-3.4.2.min.js"></script>-->
+<!--<script src="js/zepto.min.js"></script>-->
+<!--<script src="js/remstyle.js"></script>-->
+<script>
+$(function(){
+    $("#dowebok").fullpage({
+        verticalCentered:false,
+        sectionsColor:["pink","green","#ccc","yellow","black",],
+        anchors:["page1","page2","page3","page4","page5","page6","page7","page8"],
+//        navigation:true,
+//        navigationPosition:"right",
+        navigationTooltips:["首页","详情"],
+        menu:"#menu",
+        afterLoad:function(anchorLink,index){
+            if(index==6){
+                $(".page6-til").show().addClass("animated flipInY");
+                $(".page6-subtil").show().addClass("animated flipInY");
+                $(".page6-text").show().addClass("animated flipInY");
+                $(".ul-one").show().addClass("animated fadeInLeft");
+                $(".ul-two").show().addClass("animated fadeInRight");
+                $(".more1").show().addClass("animated fadeInUp");
+            }
+        },
+        onLeave:function(index,nextTndex,direction){
+            if(index==6)
+            {
+                if(direction="up"){
+                    $(".page6-til").hide().removeClass("animated flipInY");
+                    $(".page6-subtil").hide().removeClass("animated flipInY");
+                    $(".page6-text").hide().removeClass("animated flipInY");
+                    $(".ul-one").hide().removeClass("animated fadeInLeft");
+                    $(".ul-two").hide().removeClass("animated fadeInRight");
+                    $(".more1").hide().removeClass("animated fadeInUp");
+
+                }else{
+                    $(".page6-til").addClass("animated flipInY");
+                    $(".page6-subtil").addClass("animated flipInY");
+                    $(".page6-text").addClass("animated flipInY");
+                    $(".ul-one").addClass("animated fadeInLeft");
+                    $(".ul-two").addClass("animated fadeInRight");
+                    $(".more1").addClass("animated fadeInUp");
+                }
+            }
+
+        }
+
+    });
+    $(".btn").click(function(){
+        $.fn.fullpage.moveTo("page1")
+    })
+})
+
+
+</script>
+</body>
+</html>
